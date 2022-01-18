@@ -1,0 +1,27 @@
+.alert{
+    width: 224px;
+    height: 48px;
+    background-color: #221529;
+    color: #cbf5ef;
+    border-radius: 2px;
+    box-shadow: 2px 2px 8px gray;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom-right-radius: 24px;
+}
+
+.alert-primary{
+    border-left: 12px solid #5b29a6;
+}
+.alert-danger{
+    border-left: 12px solid #d64562;
+}
+.alert-success{
+    border-left: 12px solid #37ada2;
+}
+.alert-warning{
+    border-left: 12px solid #edbb8e;
+}

@@ -1,6 +1,6 @@
-import Button from './components/Button'
+import Navbar from './components/Navbar';
 function App() {
-  return (<Button></Button>);
+  return (<Navbar>Olá mundo</Navbar>);
 }
 
 export default App;
