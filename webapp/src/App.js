@@ -1,9 +1,9 @@
-import HomePage from './pages/HomePage';
 import './assets/styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SignUp from './pages/SignUp';
 
 function App() {
-  return (<HomePage></HomePage>);
+  return (<SignUp></SignUp>);
 }
 
 export default App;
