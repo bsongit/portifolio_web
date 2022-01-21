@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import Navbar  from '../components/Navbar';
 import API from '../helpers/API';
-import {handlerChange} from '../helpers/Utils';
+import {handlerChange, responseAlreadyInUse} from '../helpers/Utils';
 import {validateUserForm} from '../helpers/Validations';
 
 class SignUp extends Component{
@@ -15,12 +15,11 @@ class SignUp extends Component{
                 repeatedPassword: ''
             }
         }
-
     }
-    register = async () => {
+    async register(){
         try {
             const response = await API.post('/users/create', {...this.state.form});
-            console.log(response)
+        responseAlreadyInUse(response);
         } catch (err) {
             console.log(err)
         }

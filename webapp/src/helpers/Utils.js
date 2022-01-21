@@ -6,4 +6,10 @@ function handlerChange(e){
         }});;
 }
 
-module.exports = {handlerChange}
+function responseAlreadyInUse(response){
+    if(response.data.keyValue) return alert(`${JSON.stringify(response.data.keyValue)} already  in use!`)
+    return;
+}
+
+
+module.exports = {handlerChange,responseAlreadyInUse}
