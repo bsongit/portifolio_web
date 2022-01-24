@@ -1,3 +1,5 @@
+require('dotenv').config();
+const CryptoJS = require("crypto-js");
 const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
@@ -5,10 +7,12 @@ const User = require('../models/User')
 
 router.post("/create", async (req, res) => {
     try {
-        const user = await User.create({...req.body});
+        const crypt = {secret : process.env.CRYPT_SECRET};
+        const password = CryptoJS.HmacSHA1(req.body.password, crypt.secret);
+        const user = await User.create({...req.body, password: password.toString()});
         res.status(201).send('User registration had success!');
     } catch (error) {
-        res.send(error);
+        res.send({...error, message : "ERROR"});
     }
 });
 

@@ -25,4 +25,4 @@ function validateUserForm(form){
     return 'Valid form';
 }
 
-module.exports = {validateUserForm}
+module.exports = {validateUserForm, emailValidation}

@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import Navbar  from '../components/Navbar';
-import API from '../helpers/API';
+import {Link } from "react-router-dom";
+import API from '../helpers/Api';
 import {handlerChange, responseAlreadyInUse} from '../helpers/Utils';
 import {validateUserForm} from '../helpers/Validations';
 
@@ -19,7 +20,8 @@ class SignUp extends Component{
     async register(){
         try {
             const response = await API.post('/users/create', {...this.state.form});
-        responseAlreadyInUse(response);
+            responseAlreadyInUse(response);
+            console.log(response)
         } catch (err) {
             console.log(err)
         }
@@ -64,7 +66,7 @@ class SignUp extends Component{
                 </div>
             </div>
             <div className='w-100 d-flex justify-content-center text-center'>
-                <a href='#'>do you have account?</a>
+            <Link to='/sign-in'>Do you have a account?</Link>
             </div>
             <div>
                 Created by werbeson quadros
