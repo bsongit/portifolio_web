@@ -21,7 +21,6 @@ class SignUp extends Component{
         try {
             const response = await API.post('/users/create', {...this.state.form});
             responseAlreadyInUse(response);
-            console.log(response)
         } catch (err) {
             console.log(err)
         }

@@ -8,7 +8,8 @@ function handlerChange(e){
 
 function responseAlreadyInUse(response){
     if(response.data.keyValue) return alert(`${JSON.stringify(response.data.keyValue)} already  in use!`)
-    return;
+    alert("Registry success!");
+    window.location.href = "/sign-in"
 }
 
 
