@@ -1,14 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/User')
+const User = require('../models/User');
+const bcrypt = require('bcrypt')
 
 
 router.post("/create", async (req, res) => {
     try {
-        const user = await User.create({...req.body});
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const user = await User.create({...req.body, password: hashedPassword});
         res.status(201).send('User registration had success!');
     } catch (error) {
-        res.send(error);
+        res.send({...error, message : "ERROR"});
     }
 });
 
